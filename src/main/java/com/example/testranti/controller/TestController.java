@@ -24,4 +24,9 @@ public class TestController {
         return testService.generateGenap(request);
     }
 
+    @GetMapping(value = "/prima")
+    public BaseOutputDto generatePrima(@RequestBody BaseInputDto request){
+        return testService.generatePrima(request);
+    }
+
 }

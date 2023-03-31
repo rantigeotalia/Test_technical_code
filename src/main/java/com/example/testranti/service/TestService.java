@@ -40,6 +40,27 @@ public class TestService {
                 .build();
     }
 
+    public BaseOutputDto generatePrima(BaseInputDto request){
+        log.info("Generate Bilangan Prima");
+        List<Integer> listPrima = new ArrayList<>();
+        for(int i= 2; i <= request.getInputNumber(); i++){
+            boolean isPrima = true;
+            for(int j = 2; j <= i/2; j++){
+                if(i % j == 0){
+                    isPrima = false;
+                    break;
+                }
+            }
+            if(isPrima){
+                listPrima.add(i);
+            }
+        }
+
+        return BaseOutputDto.builder()
+                .listBilangan(listPrima)
+                .build();
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
